@@ -1,0 +1,83 @@
+body{
+    background-color:lightblue;
+   
+}
+
+h1{
+    text-align:center;
+    font-family: QUICKSAND;
+}
+
+h2{
+    text-align:center;
+}
+
+p{
+    font-family: QUICKSAND;
+    font-size:20px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.app{
+    display:inline;
+}
+
+.todo-image{
+    height:50px;
+    width:50px;
+    margin-left:48%;
+    margin-right:auto;
+   
+}
+.profile-photo{
+   
+    border-radius:50%;
+    height: 65px;
+    width: 65px;
+    border: 2px solid black;
+    margin-left: 242px;
+}
+
+.login-container{
+   
+    width:42%;
+    height:450px;
+    padding-left:20px;
+    padding-top:50px;
+    float:left;
+    text-align:center;
+    border:2px solid black;
+    margin-left:40px;
+    margin-left:350px;
+}
+
+.signup-container{
+
+    padding-left:20px;
+    padding-top:50px;
+    width:42%;
+    height:450px;
+    margin-left:350px;
+    border:2px solid black;
+    float:left;
+    margin-right:40px;
+}
+
+input[type=submit]{
+    background-color:black;
+    color:white;
+}
+
+.login{
+    background-color:white;
+    float:right;
+    margin-right:20px;
+
+}
+
+.login:hover{
+    background-color:lightblue;
+   
+    
+}
