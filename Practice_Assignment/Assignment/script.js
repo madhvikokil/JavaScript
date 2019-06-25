@@ -1,3 +1,5 @@
+  
+  
   function register() {
             var fname = document.signup.fname.value;
             var lname = document.signup.lname.value;
@@ -9,6 +11,7 @@
               alert("Fields should not be blank");
               return false;
           }
+
 
           var firstnameRegex = '[a-zA-Z]';
           var firstnameResult = fname.match(firstnameRegex);
@@ -48,14 +51,53 @@
 
           console.log('here');
           
+       
+          var obj={
+            'fname':fname,'lname':lname ,'pwd':pwd,'address':address,'uname':uname
+          }
+         
+          var myJSON = JSON.stringify(obj);
+         if(localStorage.getItem('users')){
 
-         var users = new Array();
-         var obj={
-           fname,lname,pwd,address,uname
-         }
+        
+           let users = localStorage.getItem('users');
+          var parsedArray = JSON.parse(users);
+           
+          
+          
+          const username = parsedArray.find(function(user)
+           {
 
-        users.push(obj);
+            if(user.uname === uname)
+            {
+            return true;}
+          });
 
+          if (username) 
+          {
+            alert('user is already present');
+          
+             
+          } 
+          
+          else 
+          {
+            parsedArray.push(obj);
+            var parsedJSON = JSON.stringify(parsedArray);
+            localStorage.setItem('users' ,parsedJSON);
+          }
+        
+          
+        }
+        else
+         {
+          var users = new Array();
+          users.push(obj);
+          var myJSON = JSON.stringify(users);
+           localStorage.setItem('users' ,myJSON);
+        }
+        
+         
 
           // localStorage.setItem('fname', fname);
           // localStorage.setItem('lname', lname);
@@ -65,14 +107,35 @@
 
          console.log(users);
  
-          document.write(window.open('login.html'));
-         }
+          window.open('login.html','_self');
+}
 
+
+         
 
 // Login validation 
 
-function validation(){
-  var uname2 = document.login.uname2.value;
+function validation()
+{
+   if(users.uname == uname2 && users.password == pwd2)
+      {
+        return true;
+      }
+
+      else if (usernameCheck) 
+      {
+          alert('Valid user');
+      } 
+    
+      else 
+      {
+          alert('invalid user');
+      }
+    
+}
+    
+
+ /*var uname2 = document.login.uname2.value;
   var pwd2 = document.login.pwd2.value;
 
   if(uname2=="" ||pwd2==""){
@@ -82,11 +145,11 @@ function validation(){
   check();
  }
 
- 
  // Checking function
 
-  function check(){
-    var storedName = localStorage.getItem('uname');
+  function check(){   
+    
+    var storedName = localStorage.getItem(' uname');
     var storedPwd = localStorage.getItem('pwd');
 
     // entered data from the login-form
@@ -96,17 +159,15 @@ function validation(){
     // check if stored data from register-form is equal to data from login form
     if(uname2.value !== storedName || pwd2.value !== storedPwd) {
         alert('ERROR');
-        document.write(window.open('index.html'));
+       window.open('index.html','_self');
     }else {
         alert('You are logged in.');
-        document.write(window.open('dashboard.html'));
+        window.open('dashboard.html','_self');
     }
   }
-
-  function login(){
-    document.write(window.open('login.html'));
+*/
+//}
+  function login()
+  {
+    window.open('login.html','_self');
   }
-
-
-
-
