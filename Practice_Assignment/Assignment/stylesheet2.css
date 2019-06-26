@@ -75,9 +75,7 @@ ul li.checked::before {
 /* Style the input */
 input {
   margin: 0;
-  width: 100%;
-  padding: 10px;
-  float: left;
+  padding: 5px;
   font-size: 16px;
 }
 
@@ -99,11 +97,50 @@ input {
 .logout{
   float:right;
   margin-right:30px;
-  margin-top:10px;
+  margin-top:15px;
   background-color: lightblue;
 }
 
 .logout:hover{
   background-color: white;
 
+}
+
+.edit-profile{
+  float:right;
+  margin-right:15px;
+  margin-top:15px;
+  background-color:lightblue;
+}
+
+.edit-profile:hover{
+  background-color:white;
+}
+
+.profile-container{
+    padding-left:20px;
+    width:42%;
+    height:450px;
+    margin-left:350px;
+    border:2px solid black;
+    float:left;
+    margin-right:40px;
+}
+
+#imageUpload{
+  display:none;
+}
+
+
+#profileImage{
+  display:none;
+}
+
+.logout-profile{
+  margin-right:20px;
+  float:right;
+}
+
+.logout-profile{
+  background-color:white;
 }
