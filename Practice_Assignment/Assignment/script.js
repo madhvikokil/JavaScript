@@ -6,6 +6,7 @@ function register() {
             var address = document.signup.address.value;
             var pwd = document.signup.pwd.value;
             var uname = document.signup.uname.value;
+            var theList = [];
 
             if(fname=="" ||lname =="" ||address=="" ||uname==""||pwd==""){
               alert("Fields should not be blank");
@@ -50,59 +51,61 @@ function register() {
           }
 
           console.log('here');
-          
-       
+        
           var obj={
-            'fname':fname,'lname':lname ,'pwd':pwd,'address':address,'uname':uname
+            'fname':fname,'lname':lname ,'pwd':pwd,'address':address,'uname':uname,'theList' : theList
           }
          
           var myJSON = JSON.stringify(obj);
          if(localStorage.getItem('users')){
 
         
-           let users = localStorage.getItem('users');
+          let users = localStorage.getItem('users');
           var parsedArray = JSON.parse(users);
            
           
           
-          const username = parsedArray.find(function(user)
-           {
+                    const username = parsedArray.find(function(user)
+                    {
 
-            if(user.uname === uname)
-            {
-            return true;}
-          });
+                      if(user.uname === uname)
+                      {
+                      return true;}
+                    });
 
-          if (username) 
-          {
-            alert('user is already present');
-          } 
-          
-          else 
-          {
-            parsedArray.push(obj);
-            var parsedJSON = JSON.stringify(parsedArray);
-            localStorage.setItem('users' ,parsedJSON);
-            window.open("login.html");
-          }
-        
-          
-        }
+                    if (username) 
+                    {
+                      alert('user is already present');
+                    } 
+                    
+                    else 
+                    {
+                    parsedArray.push(obj);
+                    var parsedJSON = JSON.stringify(parsedArray);
+                    localStorage.setItem('users' ,parsedJSON);
+                    window.open("login.html","_self");
+                    }
+       }
+       
         else
          {
           var users = new Array();
           users.push(obj);
           var myJSON = JSON.stringify(users);
            localStorage.setItem('users' ,myJSON);
+           window.open("login.html","_self");
         }
-         window.open("login.html");
+         
 }
+
+
 
 // Login validation 
 function validation(){
 
   var unamesecond = document.login.unamesecond.value;
   var pwdsecond = document.login.pwdsecond.value;
+
     users = localStorage.getItem('users');
     parsedArray = JSON.parse(users);
 
@@ -116,6 +119,7 @@ function validation(){
     if(sessionStorage){
       // Store data
       sessionStorage.setItem('unamesecond' ,unamesecond);
+      
       
       // Retrieve data
       alert("Hi, " +  sessionStorage.getItem('unamesecond'));
@@ -136,5 +140,46 @@ function validation(){
    window.open("login.html","_self");
   }
 
+  function profile_edit(){
+    window.open("profile.html","_self");
+  }
+
+  function logout(){
+    sessionStorage.clear();
+     window.open("login.html","_self") ; 
+  }
+
+  function profileChanges(){
+   
+    var f_name = document.profile.f_name.value;
+    var l_name = document.profile.l_name.value;
+    var add_ress = document.profile.add_ress.value;
+    
+    users = localStorage.getItem('users');
+    var parsedUser = JSON.parse(users);
+    console.log("array: ", parsedUser);
+    console.log("type of-> ", typeof parsedUser);
+  
+ 
+
+     for( index=0;index<parsedUser.length;index++){
+          if(parsedUser[index].uname === sessionStorage.unamesecond){
+            console.log(index);
+            var itr = index;
+            console.log(itr);
+                
+
+        }
+}
+
+    parsedUser[itr].fname = f_name;
+    parsedUser[itr].lname = l_name;
+    parsedUser[itr].address = add_ress;
+
+    parsedUser = JSON.stringify(f_name);
+    parsedUser = JSON.stringify(l_name);
+    parsedUser = JSON.stringify(add_ress);
+    }
+  
   
  
