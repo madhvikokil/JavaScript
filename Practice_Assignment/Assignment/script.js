@@ -6,14 +6,13 @@ function register() {
             var address = document.signup.address.value;
             var pwd = document.signup.pwd.value;
             var uname = document.signup.uname.value;
-            var theList = [];
+            var todoList = new Array();
+            
 
             if(fname=="" ||lname =="" ||address=="" ||uname==""||pwd==""){
               alert("Fields should not be blank");
               return false;
           }
-
-
           var firstnameRegex = '[a-zA-Z]';
           var firstnameResult = fname.match(firstnameRegex);
 
@@ -53,13 +52,15 @@ function register() {
           console.log('here');
         
           var obj={
-            'fname':fname,'lname':lname ,'pwd':pwd,'address':address,'uname':uname,'theList' : theList
+            'fname':fname,'lname':lname ,'pwd':pwd,'address':address,'uname':uname, 'todoList':todoList
           }
-         
-          var myJSON = JSON.stringify(obj);
-         if(localStorage.getItem('users')){
 
         
+         
+          var myJSON = JSON.stringify(obj);
+          var myJSON = JSON.stringify(todoObj);
+         if(localStorage.getItem('users')){
+
           let users = localStorage.getItem('users');
           var parsedArray = JSON.parse(users);
            
@@ -97,8 +98,6 @@ function register() {
         }
          
 }
-
-
 
 // Login validation 
 function validation(){
@@ -150,7 +149,7 @@ function validation(){
   }
 
   function profileChanges(){
-   
+   console.log('here i am');
     var f_name = document.profile.f_name.value;
     var l_name = document.profile.l_name.value;
     var add_ress = document.profile.add_ress.value;
@@ -166,20 +165,69 @@ function validation(){
           if(parsedUser[index].uname === sessionStorage.unamesecond){
             console.log(index);
             var itr = index;
-            console.log(itr);
+            console.log('index', itr);
                 
 
         }
 }
-
+console.log('index', itr);
+  
     parsedUser[itr].fname = f_name;
     parsedUser[itr].lname = l_name;
     parsedUser[itr].address = add_ress;
-
-    parsedUser = JSON.stringify(f_name);
-    parsedUser = JSON.stringify(l_name);
-    parsedUser = JSON.stringify(add_ress);
+    parsedUser = JSON.stringify(parsedUser);
+    localStorage.setItem('users',parsedUser);
     }
-  
-  
+
+    function view(){
+     localStorage.getItem();
+     localStorage.getItem(lname);
+     localStorage.getItem(address);
+     localStorage.getItem(username);
+    }
+
+// Logout
+    function logout(){
+      sessionStorage.clear();
+       window.open("login.html","_self") ; 
+    }
+    
+// Edit Profile
+    function profile_edit(){
+      window.open("profile.html","_self");
+    }
  
+// Add element in the todo List
+function addElement(){
+  var todo = new Array();
+  var add;
+  var uname = sessionStorage.unamesecond;
+  
+  var todoObj={
+      'uname':uname, 'todo':[]
+    }
+
+    var myJSON = JSON.stringify(todoObj);
+   
+
+
+  
+
+         /*if(localStorage.getItem('todoArray')){
+
+          let todoArray = localStorage.getItem('todoArray');
+          var parsedtodoArray = JSON.parse(todoArray);
+        }
+
+        else
+         {
+          var todoArray = new Array();
+          todoArray.push(todo);
+          var myJSONStringify = JSON.stringify(todoArray);
+           localStorage.setItem('todoArray' ,myJSONStringify);
+           window.open("login.html","_self");
+        }
+         
+*/
+}
+

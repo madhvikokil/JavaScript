@@ -1,5 +1,5 @@
 // Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
+/*var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
@@ -46,9 +46,28 @@ function addElement() {
     }
   
   }
+}*/
+
+function addElement(){
+  var todoObj={
+    'uname':uname,'todo':todo
+    }
+
+    var myString = JSON.stringify(todoObj);
+         if(localStorage.getItem('todo')){
+
+
+    let todo = localStorage.getItem('todo');
+    var parsedtodo = JSON.parse(todo);
+  }
+
+  else{
+var todo = new Array();
+todo = localStorage.getItem('todo');
+    parsetodo = JSON.parse(todo);
+  }
 }
-
-
+  
 // session cleared
 function logout(){
   sessionStorage.clear();
@@ -58,6 +77,14 @@ function logout(){
 function profile_edit(){
   window.open("profile.html","_self");
 }
+
+function ToDo(uname){
+  this.uname = uname;
+}
+
+var todos = new Array();
+
+
 
 
   

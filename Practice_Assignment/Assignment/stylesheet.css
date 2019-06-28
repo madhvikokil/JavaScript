@@ -67,6 +67,7 @@ p{
 input[type=submit]{
     background-color:black;
     color:white;
+    padding-left:10px;
 }
 
 .login{
@@ -80,4 +81,25 @@ input[type=submit]{
     background-color:lightblue;
    
     
+}
+
+.profile-view{
+
+    padding-left:20px;
+    width:42%;
+    height:450px;
+    margin-left:350px;
+    border:2px solid black;
+    float:left;
+    margin-right:40px;
+    
+}
+
+.view{
+    background-color:white;
+    text-align:center;
+}
+
+.view:hover{
+    background-color:lightblue;
 }

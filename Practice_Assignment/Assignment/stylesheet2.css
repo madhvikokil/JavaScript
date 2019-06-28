@@ -57,20 +57,11 @@ ul li.checked::before {
   color: white;
 }
 
-/* Style the header */
-.header {
-  background-color: blue;
-  padding: 30px 40px;
-  color: white;
-  text-align: center;
+h1{
+  text-align:center;
+  padding-left:100px;
 }
 
-/* Clear floats after the header */
-.header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* Style the input */
 input {
