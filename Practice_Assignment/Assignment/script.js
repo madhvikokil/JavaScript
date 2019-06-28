@@ -58,7 +58,7 @@ function register() {
         
          
           var myJSON = JSON.stringify(obj);
-          var myJSON = JSON.stringify(todoObj);
+          
          if(localStorage.getItem('users')){
 
           let users = localStorage.getItem('users');
@@ -199,16 +199,24 @@ console.log('index', itr);
  
 // Add element in the todo List
 function addElement(){
-  var todo = new Array();
-  var add;
-  var uname = sessionStorage.unamesecond;
   
-  var todoObj={
-      'uname':uname, 'todo':[]
-    }
+  var unamesecond = sessionStorage.unamesecond;
 
-    var myJSON = JSON.stringify(todoObj);
-   
+    let todoData = document.getElementById("giveInput").value;
+    let users = JSON.parse(localStorage.getItem("users"));
+
+    //search for existing email id
+    for(let index=0;index<users.length;index++)
+    {
+        if(unamesecond==users[index].uname)   // email id found then break
+        {
+            users[index].todoList.push(todoData);
+            todo_add_data=JSON.stringify(users);
+            localStorage.setItem("users",todo_add_data);
+        }
+    }
+  }
+  
 
 
   
@@ -229,5 +237,5 @@ function addElement(){
         }
          
 */
-}
+
 
