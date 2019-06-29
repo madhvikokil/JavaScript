@@ -59,15 +59,16 @@ ul li.checked::before {
 
 h1{
   text-align:center;
-  padding-left:100px;
+  padding-left: 160px;
 }
 
 
 /* Style the input */
 input {
-  margin: 0;
-  padding: 5px;
+  /* margin-left: 270px; */
+  /* padding-left: 48px; */
   font-size: 16px;
+  text-alignb: center;
 }
 
 /* Style the "Add" button */

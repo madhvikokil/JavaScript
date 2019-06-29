@@ -103,3 +103,32 @@ input[type=submit]{
 .view:hover{
     background-color:lightblue;
 }
+
+/* Style the input */
+input {
+    margin: 0;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  .header{
+      margin-left:40px;
+  }
+  
+
+table{
+    border:2px solid black;
+  }
+
+.logout-profile{
+    float:right;
+    margin-right:20px;
+}
+
+.logout-profile:hover{
+    background-color:white;
+}
+
+table{
+    border:2px solid black;
+  }
