@@ -313,7 +313,7 @@ function dashboard(){
 
      document.getElementById("bodytable").appendChild(li);
      document.getElementById("bodytable").value ="";
- }
+ 
  
 var span = document.createElement("SPAN");
 var txt = document.createTextNode("\u00D7");
@@ -326,7 +326,7 @@ li.appendChild(span);
   close[i].onclick = function() {
     var div = this.parentElement;
     div.style.display = "none";
-  }
+  } }
 }
 
 }
@@ -365,11 +365,11 @@ function addtodo(){
   for(var i=0;i<storage.length;i++){
     
     var tr = "<tr><td>"+storage[i].todoname+"</td>"+
-    "<td>"+todoList[i].category+"</td>"+
-    "<td>"+todoList[i].duedate+"</td>"+
-    "<td>"+todoList[i].setremainder+"</td>"+
-    "<td>"+todoList[i].addtodonote+"</td>"+
-    "<td>"+todoList[i].close+"</td></tr>"
+    "<td>"+storage[i].category+"</td>"+
+    "<td>"+storage[i].duedate+"</td>"+
+    "<td>"+storage[i].setremainder+"</td>"+
+    "<td>"+storage[i].addtodonote+"</td>"+
+    "<td>"+storage[i].close+"</td></tr>"
 
   }
 
@@ -394,7 +394,7 @@ span.className = "close";
 span.appendChild(txt);
 
 // Click on a close button to hide the current list item
-/*var close = document.getElementsByClassName("close");
+var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
@@ -402,5 +402,5 @@ for (i = 0; i < close.length; i++) {
     div.style.display = "none";
   
   }
-}*/
+}
 }
