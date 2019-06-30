@@ -265,24 +265,6 @@ function insertDefaultValues()
 function dashboard(){
   window.open("dashboard.html","self");
 }
-// onload function
-
-/*
-  var todoname = document.getElementById("todoname").value;
-  var category = document.getElementById("category").value;
-  var duedate = document.getElementById("duedate").value;
-  var setremainder = document.getElementById("setremainder").value;
-  var addtodonote = document.getElementById("addtodonote").value;
-  var makeitpublic = document.getElementById("makeitpublic").value;
-
-  var todoobj={
-    'todoname':todoname,'category':category ,'duedate':duedate,
-    'setremainder':setremainder,'addtodonote':addtodonote,'makeitpublic':makeitpublic
-  }
-
-  
-  var userRecordArray=JSON.parse(localStorage.getItem("users"));
-  */
 
  function loadData(){
 
@@ -323,14 +305,32 @@ function dashboard(){
                 "<td>"+get_inner_array[i].category+"</td>"+
                 "<td>"+get_inner_array[i].duedate+"</td>"+
                 "<td>"+get_inner_array[i].setremainder+"</td>"+
-                "<td>"+get_inner_array[i].addtodonote+"</td></tr>"
+                "<td>"+get_inner_array[i].addtodonote+"</td>"+
+                "<td>"+get_inner_array[i].close+"</td></tr>"
                   li.innerHTML=s;
 
+ 
+
      document.getElementById("bodytable").appendChild(li);
+     document.getElementById("bodytable").value ="";
+ }
+ 
+var span = document.createElement("SPAN");
+var txt = document.createTextNode("\u00D7");
+span.className = "close";
+span.appendChild(txt);
+li.appendChild(span);
+ 
+ 
+ for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
 
 }
  }
-}
 
 function addtodo(){
 
@@ -342,8 +342,12 @@ function addtodo(){
   var makeitpublic = document.getElementById("makeitpublic").value;
 
   var todoobj={
-    'todoname':todoname,'category':category ,'duedate':duedate,
-    'setremainder':setremainder,'addtodonote':addtodonote,'makeitpublic':makeitpublic
+    'todoname':todoname,
+    'category':category,
+    'duedate':duedate,
+    'setremainder':setremainder,
+    'addtodonote':addtodonote,
+    'makeitpublic':makeitpublic
   }
 
   var unamesecond = sessionStorage.unamesecond;
@@ -360,19 +364,16 @@ function addtodo(){
   var storage = userRecordArray[index].todoList;
   for(var i=0;i<storage.length;i++){
     
-    var tr = "<td><tr>"+storage[i].todoname+"</td>"+
+    var tr = "<tr><td>"+storage[i].todoname+"</td>"+
     "<td>"+todoList[i].category+"</td>"+
     "<td>"+todoList[i].duedate+"</td>"+
     "<td>"+todoList[i].setremainder+"</td>"+
-    "<td>"+todoList[i].addtodonote+"</td></tr>"
+    "<td>"+todoList[i].addtodonote+"</td>"+
+    "<td>"+todoList[i].close+"</td></tr>"
 
   }
-  var tr = document.createElement("tr");
-  var t = document.createTextNode(todoobj);
-  tr.append(t);
 
-
-  for(var i=0;i<userRecordArray.length;i++){
+    for(var i=0;i<userRecordArray.length;i++){
     if(unamesecond==userRecordArray[i].uname)   // email id found then break
     {
 
@@ -382,4 +383,24 @@ function addtodo(){
     }
 
   }
+  var tr = document.createElement("tr");
+  var t = document.createTextNode(todoobj);
+  tr.append(t);
+  document.getElementById("bodytable").value ="";
+
+var span = document.createElement("SPAN");
+var txt = document.createTextNode("\u00D7");
+span.className = "close";
+span.appendChild(txt);
+
+// Click on a close button to hide the current list item
+/*var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  
+  }
+}*/
 }

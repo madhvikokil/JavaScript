@@ -12,9 +12,9 @@
             <h1>To Do List</h1><br> 
 
       <div class="input-box">
-          <input type="submit" value="Add" placeholder="Add" onclick="addElement()">
+        
           <input type="submit" value="Delete" placeholder="Delete" onclick="deleteElement()" >
-          <input type="submit" value="Edit" placeholder="Add" >
+          <input type="submit" value="Edit" placeholder="Add" onclick="editElement()">
           <br><br><hr><br>
         </div>
 
@@ -35,15 +35,16 @@
             <input type="checkbox" name="ispublic" id="makeitpublic" value="yes"> isPublic<br><br>
             <button type="button" value="submit" onclick="addtodo()"> Add todo</button><br><br>
 
-            <table width=100% id="tableid">
+            <table width=70% id="tableid">
               <thead>
               <tr>
-                <td>Todo Name</td>
-                <td>Categort</td>
-                <td> Due Date</td>
-                <td> Set Remainder</td>
-                <td> Add Todo Not</td>
-                <td> is Public</td>
+                <th>Todo Name</th>
+                <th>Category</th>
+                <th> Due Date</th>
+                <th> Set Remainder</th>
+                <th> Add Todo Not</th>
+                <th> is Public</th>
+                <th>Close</th>
               </tr>
               </thead>
               <tbody id="bodytable">
